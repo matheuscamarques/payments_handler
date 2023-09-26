@@ -1,4 +1,4 @@
-defmodule PaymentsHandler.PaymentsSage do
+defmodule PaymentsHandler.PaymentsSageTest do
   use ExUnit.Case, async: false
   alias PaymentsHandler.Payments.Events
   alias PaymentsHandler.Sages.PaymentSage
