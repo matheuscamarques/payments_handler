@@ -43,7 +43,8 @@ defmodule PaymentsHandler.MixProject do
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:sage, "~> 0.6.3"}
+      {:sage, "~> 0.6.3"},
+      {:avl_tree, "~> 1.0"}
     ]
   end
 
