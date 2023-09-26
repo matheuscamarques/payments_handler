@@ -7,5 +7,4 @@ defmodule PaymentsHandlerWeb.ChangesetJSON do
     # as a JSON object. So we just pass it forward.
     %{errors: changeset}
   end
-
 end
