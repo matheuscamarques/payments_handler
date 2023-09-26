@@ -7,22 +7,14 @@ defmodule PaymentsHandlerWeb.Router do
 
   scope "/api", PaymentsHandlerWeb do
     pipe_through :api
-
   end
 
-  scope "/event", PaymentsHandlerWeb do
-    pipe_through [:api] # Replace with your authentication pipeline
-
-    get "/", EventsController, :index
-    get "/new", EventsController, :new
-    get "/:id", EventsController, :show
-    get "/:id/edit", EventsController, :edit
-    post "/", EventsController, :create
-    patch "/:id", EventsController, :update
-    delete "/:id", EventsController, :delete
+  scope "/", PaymentsHandlerWeb do
+    pipe_through :api
+    get "/balance", EventsController, :balance
+    post "/event", EventsController, :post_event
+    post "/reset", EventsController, :reset
   end
-
-
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:payments_handler, :dev_routes) do
