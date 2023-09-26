@@ -1,5 +1,8 @@
 # PaymentsHandler
 
+Use that case to tests HTTP 
+[https://ipkiss.pragmazero.com/](https://ipkiss.pragmazero.com/)
+
 To start your Phoenix server:
 
   * Run `mix setup` to install and setup dependencies
