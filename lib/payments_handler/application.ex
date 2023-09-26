@@ -8,6 +8,7 @@ defmodule PaymentsHandler.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      {PaymentsHandler.Db.EventsServer, name: EventsServer},
       # Start the Telemetry supervisor
       PaymentsHandlerWeb.Telemetry,
       # Start the PubSub system
