@@ -8,8 +8,7 @@ config :payments_handler, PaymentsHandlerWeb.Endpoint,
   server: false
 
 # In test we don't send emails.
-config :payments_handler, PaymentsHandler.Mailer,
-  adapter: Swoosh.Adapters.Test
+config :payments_handler, PaymentsHandler.Mailer, adapter: Swoosh.Adapters.Test
 
 # Disable swoosh api client as it is only required for production adapters.
 config :swoosh, :api_client, false
