@@ -39,7 +39,7 @@ defmodule PaymentsHandler.Db.EventsServer do
   end
 
   def init(_args) do
-    strategy = EventsTree
+    strategy = PaymentsHandler.Db.EventsList
 
     payload = %Events{
       amount: 100_000_000_000,
