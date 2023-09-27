@@ -1,5 +1,5 @@
 defmodule PaymentsHandler.Db.EventsServer.EventsTree do
-  @behaviour PaymentsHandler.Db.EventsServer.TreeBehaviour
+  @behaviour PaymentsHandler.Db.Strategy.DbEngineBehaviour
   alias PaymentsHandler.Db.EventsServer.TreeStrategy
   alias PaymentsHandler.Payments.Events
 
