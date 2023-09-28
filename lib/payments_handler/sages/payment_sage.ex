@@ -1,6 +1,7 @@
 defmodule PaymentsHandler.Sages.PaymentSage do
+  alias PaymentsHandler.Db.Engines.Objects.Events
   alias Sage
-  alias PaymentsHandler.Payments.Events
+
   @events_server EventsServer
 
   def transfer_sage(%Events{origin: origin, destination: destination} = event) do

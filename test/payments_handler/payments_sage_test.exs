@@ -1,6 +1,6 @@
 defmodule PaymentsHandler.PaymentsSageTest do
   use ExUnit.Case, async: false
-  alias PaymentsHandler.Payments.Events
+  alias PaymentsHandler.Db.Engines.Objects.Events
   alias PaymentsHandler.Sages.PaymentSage
 
   #   --
@@ -17,7 +17,7 @@ defmodule PaymentsHandler.PaymentsSageTest do
                balance: 100_000_000_000,
                events: %{
                  deposits: [
-                   %PaymentsHandler.Payments.Events{
+                   %Events{
                      amount: 100_000_000_000,
                      destination: "SYSTEM_EVENT",
                      type: "deposit",

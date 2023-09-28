@@ -1,6 +1,6 @@
 defmodule PaymentsHandler.PaymentsTest do
   use ExUnit.Case, async: false
-  alias PaymentsHandler.Payments.Events
+  alias PaymentsHandler.Db.Engines.Objects.Events
   alias PaymentsHandler.Payments
   #   --
   # # Reset state before starting tests

@@ -1,4 +1,4 @@
-defmodule PaymentsHandler.Payments.Events do
+defmodule PaymentsHandler.Db.Engines.Objects.Events do
   @enforce_keys [:amount, :destination, :type, :origin]
 
   @type t :: %__MODULE__{

@@ -1,6 +1,6 @@
-defmodule PaymentsHandler.Db.EventsServer.TreeStrategy do
+defmodule PaymentsHandler.Db.Engines.Strategies.TreeStrategy do
   alias AVLTree
-  @behaviour PaymentsHandler.Db.Strategy.DbEngineBehaviour
+  @behaviour PaymentsHandler.Db.StrategyBehavior.DbEngine
 
   def construct(), do: AVLTree.new(fn {index_a, _}, {index_b, _} -> index_a < index_b end)
 

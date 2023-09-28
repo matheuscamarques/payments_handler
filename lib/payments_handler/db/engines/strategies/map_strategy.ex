@@ -1,5 +1,5 @@
-defmodule PaymentsHandler.Db.EventsServer.MapStrategy do
-  @behaviour PaymentsHandler.Db.Strategy.DbEngineBehaviour
+defmodule PaymentsHandler.Db.Engines.Strategies.MapStrategy do
+  @behaviour PaymentsHandler.Db.StrategyBehavior.DbEngine
 
   def construct(), do: Map.new()
 
