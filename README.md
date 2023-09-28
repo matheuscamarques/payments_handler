@@ -2,6 +2,7 @@
 
 Use that case to tests HTTP 
 [https://ipkiss.pragmazero.com/](https://ipkiss.pragmazero.com/)
+![image](https://github.com/matheuscamarques/payments_handler/assets/37029621/01b4012d-7917-4458-8a5e-ba031e8eda0a)
 
 To start your Phoenix server:
 
