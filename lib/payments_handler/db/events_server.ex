@@ -6,13 +6,15 @@ defmodule PaymentsHandler.Db.EventsServer do
   alias PaymentsHandler.Db.Engines.{
     EventsTree,
     EventsMap,
-    EventsList
+    EventsList,
+    EventsEts
   }
 
   @strategies [
     EventsTree,
     EventsMap,
-    EventsList
+    EventsList,
+    EventsEts
   ]
   def start_link(init_args),
     do: GenServer.start_link(__MODULE__, [init_args], name: Keyword.fetch!(init_args, :name))
@@ -44,7 +46,7 @@ defmodule PaymentsHandler.Db.EventsServer do
   end
 
   def init(_args) do
-    strategy = EventsList
+    strategy = EventsEts
 
     payload = %Events{
       amount: 100_000_000_000,
