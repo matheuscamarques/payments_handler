@@ -1,5 +1,5 @@
-defmodule PaymentsHandler.Db.EventsServer.ListStrategy do
-  @behaviour PaymentsHandler.Db.Strategy.DbEngineBehaviour
+defmodule PaymentsHandler.Db.Engines.Strategies.ListStrategy do
+  @behaviour PaymentsHandler.Db.StrategyBehavior.DbEngine
 
   def construct(), do: []
 

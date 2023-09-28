@@ -1,5 +1,5 @@
 defmodule PaymentsHandlerWeb.EventsJSON do
-  alias PaymentsHandler.Payments.Events
+  alias PaymentsHandler.Db.Engines.Objects.Events
   alias PaymentsHandler.Payments
 
   def withdraw_json(%Events{

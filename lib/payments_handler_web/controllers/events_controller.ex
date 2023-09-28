@@ -1,8 +1,9 @@
 defmodule PaymentsHandlerWeb.EventsController do
   use PaymentsHandlerWeb, :controller
 
+  alias PaymentsHandler.Db.Engines.Objects.Events
   alias PaymentsHandler.Payments
-  alias PaymentsHandler.Payments.Events
+
   import PaymentsHandlerWeb.EventsJSON
 
   def reset(conn, _) do

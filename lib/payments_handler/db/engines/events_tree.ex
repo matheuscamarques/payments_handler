@@ -1,8 +1,9 @@
-defmodule PaymentsHandler.Db.EventsServer.EventsTree do
-  @behaviour PaymentsHandler.Db.Strategy.DbEngineBehaviour
-  
-  alias PaymentsHandler.Db.EventsServer.TreeStrategy
-  alias PaymentsHandler.Payments.Events
+defmodule PaymentsHandler.Db.Engines.EventsTree do
+  alias PaymentsHandler.Db.StrategyBehavior.DbEngine
+  alias PaymentsHandler.Db.Engines.Strategies.TreeStrategy
+  alias PaymentsHandler.Db.Engines.Objects.Events
+
+  @behaviour DbEngine
 
   defdelegate construct, to: TreeStrategy, as: :construct
   defdelegate get_from_id(tree, index), to: TreeStrategy, as: :get_from_id

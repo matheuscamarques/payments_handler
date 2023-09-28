@@ -1,10 +1,10 @@
 defmodule PaymentsHandler.Payments do
+  alias PaymentsHandler.Db.Engines.Objects.Events
   alias PaymentsHandler.Sages.PaymentSage
 
   @moduledoc """
   The Payments context.
   """
-  alias PaymentsHandler.Payments.Events
 
   def transfer(%Events{} = event) do
     PaymentSage.transfer_sage(event)
