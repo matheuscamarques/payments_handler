@@ -15,7 +15,7 @@ defmodule PaymentsHandlerWeb.EventsController do
   end
 
   def balance(conn, %{"account_id" => account_id}) do
-    balance = Payments.get_balance_by_id(account_id)
+    {:ok, balance} = Payments.get_balance_by_id(account_id)
 
     case balance do
       0 ->
