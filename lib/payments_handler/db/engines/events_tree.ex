@@ -8,7 +8,7 @@ defmodule PaymentsHandler.Db.Engines.EventsTree do
   defdelegate construct, to: TreeStrategy, as: :construct
   defdelegate get_from_id(tree, index), to: TreeStrategy, as: :get_from_id
 
-  @spec insert(tree :: any, index :: any, item :: PaymentsHandler.Payments.Events) :: AVLTree
+  @spec insert(tree :: any, index :: any, item :: Events) :: AVLTree
   def insert(tree, index, %Events{} = item) do
     TreeStrategy.insert(tree, index, item)
   end
