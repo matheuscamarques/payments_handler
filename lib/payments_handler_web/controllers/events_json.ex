@@ -8,7 +8,7 @@ defmodule PaymentsHandlerWeb.EventsJSON do
     %{
       origin: %{
         id: origin,
-        balance: Payments.get_balance_by_id(origin)
+        balance: balance(origin)
       }
     }
   end
@@ -19,7 +19,7 @@ defmodule PaymentsHandlerWeb.EventsJSON do
     %{
       destination: %{
         id: destination,
-        balance: Payments.get_balance_by_id(destination)
+        balance: balance(destination)
       }
     }
   end
@@ -31,12 +31,17 @@ defmodule PaymentsHandlerWeb.EventsJSON do
     %{
       origin: %{
         id: origin,
-        balance: Payments.get_balance_by_id(origin)
+        balance: balance(origin)
       },
       destination: %{
         id: destination,
-        balance: Payments.get_balance_by_id(destination)
+        balance: balance(destination)
       }
     }
+  end
+
+  def balance(id) do
+    {:ok, balance, _} = Payments.get_balance_by_id(id)
+    balance
   end
 end

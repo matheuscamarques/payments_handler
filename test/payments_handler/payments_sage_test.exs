@@ -45,22 +45,24 @@ defmodule PaymentsHandler.PaymentsSageTest do
     test "existing account" do
       GenServer.call(EventsServer, :reset)
 
-      assert PaymentSage.transfer_sage(%Events{
-               amount: 10,
-               origin: "SYSTEM_EVENT",
-               destination: 100,
-               type: "deposit"
-             }) == :ok
+      assert {:ok, _, _} =
+               PaymentSage.transfer_sage(%Events{
+                 amount: 10,
+                 origin: "SYSTEM_EVENT",
+                 destination: 100,
+                 type: "deposit"
+               })
 
       budget = GenServer.call(EventsServer, {:state, 100})
       assert budget.balance == 10
 
-      assert PaymentSage.transfer_sage(%Events{
-               amount: 10,
-               origin: "SYSTEM_EVENT",
-               destination: 100,
-               type: "deposit"
-             }) == :ok
+      assert {:ok, _, _} =
+               PaymentSage.transfer_sage(%Events{
+                 amount: 10,
+                 origin: "SYSTEM_EVENT",
+                 destination: 100,
+                 type: "deposit"
+               })
 
       budget = GenServer.call(EventsServer, {:state, 100})
       assert budget.balance == 20
@@ -77,12 +79,13 @@ defmodule PaymentsHandler.PaymentsSageTest do
     test "with initial balance" do
       GenServer.call(EventsServer, :reset)
 
-      assert PaymentSage.transfer_sage(%Events{
-               amount: 10,
-               origin: "SYSTEM_EVENT",
-               destination: 100,
-               type: "deposit"
-             }) == :ok
+      assert {:ok, _, _} =
+               PaymentSage.transfer_sage(%Events{
+                 amount: 10,
+                 origin: "SYSTEM_EVENT",
+                 destination: 100,
+                 type: "deposit"
+               })
 
       budget = GenServer.call(EventsServer, {:state, 100})
       assert budget.balance == 10
@@ -93,22 +96,23 @@ defmodule PaymentsHandler.PaymentsSageTest do
     test "existing account" do
       GenServer.call(EventsServer, :reset)
 
-      assert PaymentSage.transfer_sage(%Events{
-               amount: 10,
-               origin: "SYSTEM_EVENT",
-               destination: 100,
-               type: "deposit"
-             }) == :ok
+      assert {:ok, _, _} =
+               PaymentSage.transfer_sage(%Events{
+                 amount: 10,
+                 origin: "SYSTEM_EVENT",
+                 destination: 100,
+                 type: "deposit"
+               })
 
-      budget = GenServer.call(EventsServer, {:state, 100})
-      assert budget.balance == 10
+      assert {:ok, 10, _} = PaymentSage.get_balance_by_id_sage(100)
 
-      assert PaymentSage.transfer_sage(%Events{
-               amount: 10,
-               origin: "SYSTEM_EVENT",
-               destination: 100,
-               type: "deposit"
-             }) == :ok
+      assert {:ok, _, _} =
+               PaymentSage.transfer_sage(%Events{
+                 amount: 10,
+                 origin: "SYSTEM_EVENT",
+                 destination: 100,
+                 type: "deposit"
+               })
 
       budget = GenServer.call(EventsServer, {:state, 100})
       assert budget.balance == 20
@@ -130,29 +134,31 @@ defmodule PaymentsHandler.PaymentsSageTest do
     test "from existing account" do
       GenServer.call(EventsServer, :reset)
 
-      assert PaymentSage.transfer_sage(%Events{
-               amount: 10,
-               origin: "SYSTEM_EVENT",
-               destination: 100,
-               type: "deposit"
-             }) == :ok
+      assert {:ok, _, _} =
+               PaymentSage.transfer_sage(%Events{
+                 amount: 10,
+                 origin: "SYSTEM_EVENT",
+                 destination: 100,
+                 type: "deposit"
+               })
 
-      assert PaymentSage.transfer_sage(%Events{
-               amount: 10,
-               origin: "SYSTEM_EVENT",
-               destination: 100,
-               type: "deposit"
-             }) == :ok
+      assert {:ok, _, _} =
+               PaymentSage.transfer_sage(%Events{
+                 amount: 10,
+                 origin: "SYSTEM_EVENT",
+                 destination: 100,
+                 type: "deposit"
+               })
 
-      assert PaymentSage.transfer_sage(%Events{
-               amount: 5,
-               origin: 100,
-               destination: "SYSTEM_EVENT",
-               type: "withdraw"
-             }) == :ok
+      assert {:ok, _, _} =
+               PaymentSage.transfer_sage(%Events{
+                 amount: 5,
+                 origin: 100,
+                 destination: "SYSTEM_EVENT",
+                 type: "withdraw"
+               })
 
-      budget = GenServer.call(EventsServer, {:state, 100})
-      assert budget.balance == 15
+      assert {:ok, 15, _} = PaymentSage.get_balance_by_id_sage(100)
     end
   end
 
@@ -160,33 +166,37 @@ defmodule PaymentsHandler.PaymentsSageTest do
     test "from existing account" do
       GenServer.call(EventsServer, :reset)
 
-      assert PaymentSage.transfer_sage(%Events{
-               amount: 10,
-               origin: "SYSTEM_EVENT",
-               destination: 100,
-               type: "deposit"
-             }) == :ok
+      assert {:ok, _, _} =
+               PaymentSage.transfer_sage(%Events{
+                 amount: 10,
+                 origin: "SYSTEM_EVENT",
+                 destination: 100,
+                 type: "deposit"
+               })
 
-      assert PaymentSage.transfer_sage(%Events{
-               amount: 10,
-               origin: "SYSTEM_EVENT",
-               destination: 100,
-               type: "deposit"
-             }) == :ok
+      assert {:ok, _, _} =
+               PaymentSage.transfer_sage(%Events{
+                 amount: 10,
+                 origin: "SYSTEM_EVENT",
+                 destination: 100,
+                 type: "deposit"
+               })
 
-      assert PaymentSage.transfer_sage(%Events{
-               amount: 5,
-               origin: 100,
-               destination: "SYSTEM_EVENT",
-               type: "withdraw"
-             }) == :ok
+      assert {:ok, _, _} =
+               PaymentSage.transfer_sage(%Events{
+                 amount: 5,
+                 origin: 100,
+                 destination: "SYSTEM_EVENT",
+                 type: "withdraw"
+               })
 
-      assert PaymentSage.transfer_sage(%Events{
-               amount: 15,
-               origin: 100,
-               destination: 300,
-               type: "withdraw"
-             }) == :ok
+      assert {:ok, _, _} =
+               PaymentSage.transfer_sage(%Events{
+                 amount: 15,
+                 origin: 100,
+                 destination: 300,
+                 type: "withdraw"
+               })
 
       assert GenServer.call(EventsServer, {:state, 100}).balance == 0
       assert GenServer.call(EventsServer, {:state, 300}).balance == 15
