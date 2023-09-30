@@ -11,10 +11,10 @@ defmodule PaymentsHandler.Payments do
   end
 
   def get_balance_by_id(account_id) do
-    PaymentSage.get_balance_by_id(account_id)
+    PaymentSage.get_balance_by_id_sage(account_id)
   end
 
   def reset() do
-    PaymentSage.reset()
+    PaymentSage.reset_server_sage()
   end
 end
